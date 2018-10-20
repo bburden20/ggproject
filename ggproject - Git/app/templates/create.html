@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<form action="" method="post" novalidate>
+		<h1>Create New Employee</h1>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.first_name.label }}<br>
+            {{ form.first_name(size=32) }}
+        </p>
+        <p>
+            {{ form.last_name.label }}<br>
+            {{ form.last_name(size=32) }}
+        </p>
+		<p>
+            {{ form.salary.label }}<br>
+			{{ form.salary }}
+        </p>
+        <p>{{ form.hired_date.label }} <br>
+			{{ form.hired_date() }}</p>
+		<p>
+            {{ form.department.label }}<br>
+            {{ form.department(size=32) }}
+        </p>
+		<p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

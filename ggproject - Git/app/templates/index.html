@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+	
+	<table style="border-spacing: 20px;">
+		<tr style="font-weight:bold">
+			<td>First Name</td><td>Last Name</td><td>Salary</td><td>Hire Date</td><td>Department</td><td>Update</td><td>Delete</td>
+		</tr>
+				{% for employee in employees %}
+				<tr>
+					<td>{{ employee.first_name }}</td>
+					<td>{{ employee.last_name }}</td>
+					<td>{{ employee.salary }}</td>
+					<td>{{ employee.hire_date }}</td>
+					<td>{{ employee.department }}</td>
+					<td><a href={{ url_for('update', id=employee.id, 
+						first_name=employee.first_name, 
+						last_name=employee.last_name, 
+						salary=employee.salary,
+						hire_date=employee.hire_date,
+						department=employee.department) }}>Update</a></td>
+					<td><a href={{ url_for('delete', id=employee.id) }}>Delete</a></td>
+				</tr>
+				{% endfor %}
+	</table>
+	<hr>
+	<div>
+		<b><a href="{{ url_for('create') }}">Create New Employee</a></b>
+    </div>
+	
+	
+{% endblock %}

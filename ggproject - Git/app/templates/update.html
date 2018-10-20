@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<form action="" method="post" novalidate>
+		<h1>Update Employee</h1>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.first_name.label }}<br>
+            {{ form.first_name(size=32, value=request.args.get('first_name')) }}
+        </p>
+        <p>
+            {{ form.last_name.label }}<br>
+            {{ form.last_name(size=32, value=request.args.get('last_name')) }}
+        </p>
+		<p>
+            {{ form.salary.label }}<br>
+			{{ form.salary(value=request.args.get('salary')) }}
+        </p>
+        <p>{{ form.hired_date.label }} <br>
+			{{ form.hired_date(value=timeless) }}</p>
+		<p>
+            {{ form.department.label }}<br>
+            {{ form.department(size=32, value=request.args.get('department')) }}
+        </p>
+		<p>{{ form.update() }}</p>
+    </form>
+{% endblock %}
